@@ -7,10 +7,9 @@ data/temp/
 cache/
 
 # ORS folder
-ors/**/*
-!ors/docker-compose.yml
-!ors/ors-docker
+ors/ors-docker/**
 !ors/ors-docker/**/
+!ors/ors-docker/**/.gitkeep
 !ors/ors-docker/files/heidelberg_2023-05-11.pbf
 !ors/ors-docker/files/streets_shadow_index_170.csv
 !ors/ors-docker/files/streets_shadow_index_240.csv
