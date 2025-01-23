@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""Tests for route_generator"""
+"""Tests for route generator"""
 
 
 import rasterio as rio
 import numpy as np
 import geopandas as gpd
 from shapely.geometry import Point
-from ..route_generator import numpy2coords, search_nearby_pois
+
+from modules.route_generator import numpy2coords, search_nearby_pois
 
 
 def test_numpy2coords():
