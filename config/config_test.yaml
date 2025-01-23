@@ -1,5 +1,5 @@
 aoi_name: Heidelberg
-sensitivity_factor: 0.8
+sensitivity_factor: 1.0
 day: 170
 n_trips: 50
 max_distance: 2000

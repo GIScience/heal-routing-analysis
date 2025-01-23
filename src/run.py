@@ -149,8 +149,8 @@ def main(config_file, ors_config_file, developer_config_file):
         # route evaluation
         try:
             logger.info("Evaluating routes...")
-            all_statistics_filename = "all_routes_statistics"
-            all_segments_filename = "all_segments_ranking"
+            route_level_filename = "route_level_statistics"
+            segment_level_filename = "segment_level_statistics"
             evaluate_routes(
                 n_trips,
                 solar_threshold_dict,
@@ -159,8 +159,8 @@ def main(config_file, ors_config_file, developer_config_file):
                 default_ors_request["preference"],
                 optimized_type,
                 out_dir_dict,
-                all_statistics_filename,
-                all_segments_filename,
+                route_level_filename,
+                segment_level_filename,
                 bar,
             )
         except Exception as e:

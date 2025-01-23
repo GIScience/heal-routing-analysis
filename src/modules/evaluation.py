@@ -22,7 +22,7 @@ warnings.filterwarnings(action="ignore", message=".*initial implementation of Pa
 pd.options.mode.chained_assignment = None  # default='warn'
 
 
-def generate_statistics(
+def generate_route_statistics(
     logger,
     solar_data,
     route_i,
@@ -344,8 +344,8 @@ def evaluate_routes(
     default_type,
     optimized_type,
     out_dir_dict,
-    all_statistics_filename,
-    all_segments_filename,
+    route_level_filename,
+    segment_level_filename,
     bar,
 ):
     """Extracts information about route objects"""
@@ -390,7 +390,7 @@ def evaluate_routes(
 
                     default_data_i = trip_id - 1
 
-                    route_append_data = generate_statistics(
+                    route_append_data = generate_route_statistics(
                         logger,
                         routes_sol_data,
                         trip_id,
@@ -430,12 +430,12 @@ def evaluate_routes(
     # statistics export
     logger.info("Generating resulting files...")
     logger.info("Routes...")
-    gdf_statistics = write_gdf(routes_list_full, all_statistics_filename, out_dir_dict)
-    routes_gdf_length = len(gdf_statistics)
+    route_level_data = write_gdf(routes_list_full, route_level_filename, out_dir_dict)
+    routes_gdf_length = len(route_level_data)
     standardization_factor = routes_gdf_length / len(time_of_day_values)
     del routes_list_full  # prevent memory leak
     split_in_types(
-        gdf_statistics,
+        route_level_data,
         out_dir_dict,
         "routes",
         time_of_day_values,
@@ -443,14 +443,14 @@ def evaluate_routes(
         standardization_factor,
         sorted_geom_name,
     )
-    del gdf_statistics  # prevent memory leak
+    del route_level_data  # prevent memory leak
 
     logger.info("Segments...")
-    gdf_segments = write_gdf(segments_list_full, all_segments_filename, out_dir_dict)
+    segment_level_data = write_gdf(segments_list_full, segment_level_filename, out_dir_dict)
     del segments_list_full  # prevent memory leak
     logger.info("Postprocessing per times of day...")
     split_in_types(
-        gdf_segments,
+        segment_level_data,
         out_dir_dict,
         "segments",
         time_of_day_values,
