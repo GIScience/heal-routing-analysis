@@ -14,7 +14,7 @@ class ConfigVariables(BaseSettings):
     aoi_name: str = Field(..., regex="(.*\.(gpkg|shp|geojson)$)|(.*\.\s[A-Z].*$)|^(?!.*\.)")
     sensitivity_factor: float = Field(..., ge=0.0, le=1.0)
     day: int = Field(..., ge=90, le=180)
-    n_trips: int
+    n_trips: int = Field(..., ge=2)
     max_distance: int = Field(..., ge=100, le=5000)
     min_distance: int = Field(..., ge=0, le=1000)
     solar_threshold_dict: dict[str, int] = Field(..., ge=1, le=99)
@@ -46,6 +46,16 @@ class ConfigVariables(BaseSettings):
         for item in value:
             if item not in set(full_poi_list):
                 raise ValueError(f"Specified poi type '{item}' not available.")
+        return value
+    
+    @validator("pop_file")
+    def validate_pop_file(cls, value):
+        """Check if pop file is valid"""
+        filepath = Path('data') / value
+        if not filepath.is_file():
+            raise ValueError("Specified population file does not exist.")
+        if value[-4:] != ".tif":
+            raise ValueError("Population file must be a .tif file.")
         return value
 
 
