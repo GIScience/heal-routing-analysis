@@ -458,5 +458,3 @@ def evaluate_routes(
         standardization_factor,
         sorted_geom_name,
     )
-
-    return routes_gdf_length  # for testing

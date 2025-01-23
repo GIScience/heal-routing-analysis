@@ -11,7 +11,7 @@ from pathlib import Path
 from alive_progress import alive_bar
 
 from modules.utils import load_config, init_logger
-from modules.validate_args import validate_arguments
+from modules.validate_config import validate_config
 from modules.cleanup import full_cleanup, cleanup_temp
 from modules.download_pois import load_osm_tags, download_features
 from modules.route_generator import generate_routes
@@ -25,7 +25,7 @@ def main(config_file, ors_config_file, developer_config_file):
 
     logger.info("Validating config parameters...")
     config, ors_config, developer_config = load_config(config_file, ors_config_file, developer_config_file)
-    config, ors_config, developer_config = validate_arguments(config, ors_config, developer_config)
+    config, ors_config, developer_config = validate_config(config, ors_config, developer_config)
 
     # Developer config file params
     data_dir = developer_config.data_dir

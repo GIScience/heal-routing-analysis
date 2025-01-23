@@ -87,8 +87,8 @@ class ORSconfigVariables(BaseSettings):
     default_ors_request: dict
 
 
-def validate_arguments(config, ors_config, developer_config):
-    """Validate variables in config files using pydantic"""
+def validate_config(config, ors_config, developer_config):
+    """Validate parameters in config files"""
 
     try:
         config = ConfigVariables.parse_obj(config)

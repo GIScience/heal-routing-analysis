@@ -7,15 +7,15 @@ import logging
 import yaml
 
 
-def subfolder(out_dir, timestamp):
+def subfolder(out_dir, time_of_day):
     """
-    Returns the respective folder path and creates subfolders in out_dir with timestamps if not existent already
+    Returns the respective folder path and creates subfolders in out_dir with times of day if not existent already
     :param out_dir: output directory
-    :param timestamp: timestamp from list or normal
-    :param time_i: iterator going trough the timestamp list
+    :param time_of_day: time of day from list or default
+    :param time_i: iterator going trough the time of day list
     :return: output folder name
     """
-    out_folder = out_dir / timestamp
+    out_folder = out_dir / time_of_day
     out_folder.mkdir(exist_ok=True)
     return out_folder
 

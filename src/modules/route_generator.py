@@ -325,5 +325,3 @@ def generate_routes(
         out_dir_dict["exportdata"] / f"{default_ors_request['preference']}_segments_sol_data.json", "w"
     ) as f:
         json.dump(default_segments_sol_data, f, indent=4)
-
-    return len(generated_routes)  # for testing
