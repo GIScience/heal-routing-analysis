@@ -50,7 +50,7 @@ class ConfigVariables(BaseSettings):
 
     @validator("pop_file")
     def validate_pop_file(cls, value):
-        """Check if pop file is valid"""
+        """Check if pop file exists"""
         filepath = Path("data") / value
         if not filepath.is_file():
             raise ValueError("Specified population file does not exist.")
@@ -69,6 +69,14 @@ class DeveloperconfigVariables(BaseSettings):
     time_of_day_dict: dict[str, str] = Field(..., min_length=1, max_length=4)
     optimized_type: str
     testenv: bool
+
+    @validator("poi_tags_file")
+    def validate_poi_tags_file(cls, value):
+        """Check if poi_tags_file exists"""
+        filepath = Path("data") / value
+        if not filepath.is_file():
+            raise ValueError("Specified poi_tags_file file does not exist.")
+        return value
 
 
 class ORSconfigVariables(BaseSettings):

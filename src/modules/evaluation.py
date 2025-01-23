@@ -230,16 +230,6 @@ def generate_segment_data(
     return append_segment_data
 
 
-def write_gdf(in_data, outname, out_dir_dict):
-    """Export GeoDataFrame to file"""
-    gdf_full = gpd.GeoDataFrame(in_data)
-    gdf_full.set_geometry(col="geom", inplace=True)
-    gdf_full.set_crs("EPSG:4326", inplace=True)
-    gdf_full.to_feather(out_dir_dict["out_dir"] / f"{outname}.feather")
-
-    return gdf_full
-
-
 def split_in_types(
     gdf, out_dir_dict, filetype, time_of_day_values, optimized_type, standardization_factor, sorted_geom_name
 ):
@@ -334,6 +324,16 @@ def aggregate_count(
     counts.set_geometry(col="geom", inplace=True)
     counts.set_crs("EPSG:4326", inplace=True)
     counts.to_feather(out_folder / f"counts_{time_of_day}_{segtype}.feather")
+
+
+def write_gdf(in_data, outname, out_dir_dict):
+    """Export GeoDataFrame to file"""
+    gdf_full = gpd.GeoDataFrame(in_data)
+    gdf_full.set_geometry(col="geom", inplace=True)
+    gdf_full.set_crs("EPSG:4326", inplace=True)
+    gdf_full.to_feather(out_dir_dict["out_dir"] / f"{outname}.feather")
+
+    return gdf_full
 
 
 def evaluate_routes(
