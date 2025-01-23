@@ -47,11 +47,11 @@ class ConfigVariables(BaseSettings):
             if item not in set(full_poi_list):
                 raise ValueError(f"Specified poi type '{item}' not available.")
         return value
-    
+
     @validator("pop_file")
     def validate_pop_file(cls, value):
         """Check if pop file is valid"""
-        filepath = Path('data') / value
+        filepath = Path("data") / value
         if not filepath.is_file():
             raise ValueError("Specified population file does not exist.")
         if value[-4:] != ".tif":
