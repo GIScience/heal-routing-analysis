@@ -1,0 +1,28 @@
+aoi_name: aoi.gpkg
+sensitivity_factor: 1.0
+day: 170
+n_trips: 625
+max_distance: 2000
+min_distance: 350
+solar_threshold_dict:
+  low: 50
+  high: 90
+pop_file: pop_file.tif
+poi_type_list:
+- bus
+- children
+- elderly-people
+- general
+- kindergartens
+- market
+- offices_townhall
+- open-space
+- other
+- places
+- primary-care
+- schools
+- secondary-care
+- small-shops
+- supermarket
+- trams_subway
+osm_timestamp: '2023-05-12'

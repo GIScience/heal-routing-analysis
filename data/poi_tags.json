@@ -1,0 +1,98 @@
+{
+    "vulnerable_groups": [
+        {
+            "filter": "amenity=social_facility or social_facility=food_bank",
+            "name": "general",
+            "endpoint": "elements/centroid"
+        },
+        {
+            "filter": "social_facility=group_home or social_facility=nursing_home or social_facility=hospice",
+            "name": "elderly-people",
+            "endpoint": "elements/centroid"
+        },
+        {
+            "filter": "amenity=kindergarten or amenity=childcare or leisure=playground",
+            "name": "children",
+            "endpoint": "elements/centroid"
+        }
+    ],
+    "education": [
+        {
+            "filter": "amenity=school",
+            "name": "schools",
+            "endpoint": "elements/centroid"
+        },
+        {
+            "filter": "amenity=kindergarten",
+            "name": "kindergartens",
+            "endpoint": "elements/centroid"
+        },
+        {
+            "filter": "amenity=library",
+            "name": "other",
+            "endpoint": "elements/centroid"
+        }
+    ],
+    "healthcare": [
+        {
+            "filter": "amenity in (clinic, doctors) or healthcare in (clinic, doctors)",
+            "name": "primary-care",
+            "endpoint": "elements/centroid"
+        },
+        {
+            "filter": "amenity=hospital or healthcare=hospital or amenity=pharmacy",
+            "name": "secondary-care",
+            "endpoint": "elements/centroid"
+        }
+    ],
+    "public_transport": [
+        {
+            "filter": "highway=bus_stop",
+            "name": "bus",
+            "endpoint": "elements/centroid"
+        },
+        {
+            "filter": "station=subway or railway=tram_stop",
+            "name": "trams_subway",
+            "endpoint": "elements/centroid"
+        }
+    ],
+    "essentials": [
+        {
+            "filter": "shop=supermarket",
+            "name": "supermarket",
+            "endpoint": "elements/centroid"
+        },
+        {
+            "filter": "shop=convenience or shop=kiosk",
+            "name": "small-shops",
+            "endpoint": "elements/centroid"
+        },
+        {
+            "filter": "amenity=marketplace",
+            "name": "market",
+            "endpoint": "elements/centroid"
+        }
+    ],
+    "leisure": [
+        {
+            "filter": "leisure=park or amenity=cafe or shop=hairdresser",
+            "name": "open-space",
+            "endpoint": "elements/centroid"
+        }
+    ],
+    "cool_places": [
+        {
+            "filter": "amenity=fountain or building=church",
+            "name": "places",
+            "endpoint": "elements/centroid"
+        }
+    ],
+    "administrative": [
+        {
+            "filter": "office=government or amenity=townhall",
+            "name": "offices_townhall",
+            "endpoint": "elements/centroid"
+        }
+    ]
+}

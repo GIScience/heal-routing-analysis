@@ -1,0 +1,16 @@
+# ors_url: https://heal.openrouteservice.org/api/ors
+ors_url: http://localhost:8080/ors
+profile: foot-walking
+default_ors_request:
+  instructions: false
+  preference: shortest
+  elevation: true
+  continue_straight: true
+  extra_info:
+  - csv
+  options:
+    avoid_features:
+    - ferries
+    profile_params:
+      weightings:
+        csv_factor: 0.0
