@@ -42,6 +42,9 @@ Poetry will detect and respect any existing virtual environment that has been ex
 poetry install
 ```
 
+In some rare cases, you need to run the command again after it fails with an error that the dependency `virtualenv` cannot be handled correctly. In our cases, this fixed the error.
+
+
 **Optional**: To update the packages to their latest suitable versions (and the poetry.lock file), run:
 
 ```shell
@@ -205,7 +208,7 @@ testenv: False
 
 1. **Cleanup** by deleting folders in `out_dir` and temporary data in `./data/` (save the results before executing the program again!)
 2. Create **folder structure** with subfolders according to the type of data under `out_dir`
-3. **Download POIs** from OSM using the ohsome API - these are destination points (B) (*Attention, this will take some time*)
+3. **Download POIs** from OSM using the ohsome API - these are destination points (B)
 
 </details>
 
@@ -225,8 +228,8 @@ testenv: False
    <summary><b>Evaluation and statistical analysis</b></summary>
 <br/>
 
-9. **Evaluate** the routes by **creating statistics** based on the comparison of alternatives to default routes, reading the data of the written files (`out_dir/exportdata/all_routes_statistics.feather`)
-10. **Create segments** of routes and **rank** them based on geometry and solar thresholds (`out_dir/exportdata/all_segments_ranking.feather`) compared to the respective default route of the A to B pair
+9. **Evaluate** the routes by **creating statistics** based on the comparison of alternatives to default routes, reading the data of the written files (`out_dir/exportdata/route_level_statistics.feather`)
+10. **Create segments** of routes and **rank** them based on geometry and solar thresholds (`out_dir/exportdata/segment_level_statistics.feather`) compared to the respective default route of the A to B pair
 11. **Counts segments** for a usage frequency analysis for all times of day and all segments (`out_dir/aggregation/`)
 
 </details>
@@ -250,7 +253,7 @@ In order to run the analysis for **multiple days with multiple sensitivity facto
 
 ## Explore results in QGIS
 
-1. Import the files *all_statistics_routes.feather* and *all_segments_ranking.feather* in `out_dir/exportdata` into QGIS to explore them
+1. Import the files *route_level_statistics.feather* and *segment_level_statistics.feather* in `out_dir/exportdata` into QGIS to explore them
 2. Use the QML files in `data/mapdata/` to style both files using our custom styling recommendation
 3. To compare specific solar exposure data for the segments and the respective rankings between the default and shade-optimized routes, follow this guide for the file *all_segments_ranking.feather*:
    - Set filter like `("route_type" = '{default}' OR "route_type" = '{optimized} route at 4pm') AND "trip_id" = 4`
