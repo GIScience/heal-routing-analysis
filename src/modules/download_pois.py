@@ -3,12 +3,11 @@
 """Downloads OSM data using ohsome api"""
 
 
-import json
-
 import geopandas as gpd
+import json
 import logging
-from pathlib import Path
 from ohsome import OhsomeClient
+from pathlib import Path
 
 
 def download_features(

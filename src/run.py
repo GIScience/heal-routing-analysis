@@ -4,9 +4,9 @@
 
 
 import argparse
-import sys
-import osmnx as ox
 import geopandas as gpd
+import osmnx as ox
+import sys
 from pathlib import Path
 from alive_progress import alive_bar
 

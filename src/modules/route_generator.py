@@ -3,23 +3,22 @@
 """Generate usual and HEAL routes"""
 
 
-from modules.route_analyst.client import RoutingClient
-import modules.utils as utils
-
 import copy
+import geopandas as gpd
+import json
 import logging
+import numpy as np
+import pyproj
+import rasterio as rio
+import rasterio.mask as mask
 import requests
 import subprocess
 import sys
-import pyproj
-import json
-
-import geopandas as gpd
-import numpy as np
-import rasterio as rio
-import rasterio.mask as mask
 from shapely.geometry import Point
 from shapely.ops import transform
+
+from modules.route_analyst.client import RoutingClient
+import modules.utils as utils
 
 
 def search_nearby_pois(max_distance, min_distance, start_point_utm, poi_df):

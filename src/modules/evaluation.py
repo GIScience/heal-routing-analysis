@@ -3,17 +3,16 @@
 """Compare and evaluate groups of routes"""
 
 
-from modules.route_analyst.route import Route
-
-import warnings
+import geopandas as gpd
 import json
 import logging
-import sys
-import pandas as pd
-import geopandas as gpd
 import numpy as np
+import pandas as pd
+import warnings
 from shapely import wkt
 from tqdm import tqdm
+
+from modules.route_analyst.route import Route
 
 # ignore FutureWarnings from geopandas
 warnings.simplefilter(action="ignore", category=FutureWarning)
