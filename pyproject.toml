@@ -1,0 +1,33 @@
+[tool.poetry]
+package-mode = false
+name = "heal-routing"
+version = "0.1.14"
+description = "Manages the dependencies of heal-routing"
+authors = ["Christina Ludwig <christina.ludwig@uni-heidelberg.de>", "Niko Kolaxidis <nikolaos.kolaxidis@heigit.org>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.10.dev0"
+osmnx = "^1.2.1"
+geopandas = "^0.10.2"
+fiona = "1.9.6"
+rasterio = "^1.4.3"
+openrouteservice = "^2.3.3"
+ohsome = "0.1.1rc1"
+docker = "^6.1.3"
+statsmodels = "^0.14.4"
+pyarrow = "^17.0.0"
+seaborn = "^0.12.2"
+pyyaml = "^6.0.2"
+pydantic = "^1.10.21"
+alive-progress = "^3.2.0"
+tqdm = "^4.67.1"
+jupyter = "^1.1.1"
+jupyter-core = "5.1.2"
+pre-commit = "^3.8.0"
+pytest = "^8.3.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

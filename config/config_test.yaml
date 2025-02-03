@@ -1,0 +1,15 @@
+aoi_name: Heidelberg, Germany
+sensitivity_factor: 1.0
+day: 170
+n_trips: 50
+max_distance: 2000
+min_distance: 350
+solar_threshold_dict:
+  low: 50
+  high: 90
+pop_file: pop_file.tif
+poi_type_list:
+- bus
+- primary-care
+- schools
+osm_timestamp: '2023-05-12'
