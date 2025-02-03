@@ -125,7 +125,7 @@ The configuration file is a yaml file which contains all customizable parameters
 An example config file can be found under [config/config_sample.yaml](./config/config_sample.yaml):
 
 ```yaml
-aoi_name: Heidelberg
+aoi_name: Heidelberg, Germany
 sensitivity_factor: 1.0
 day: 170
 n_trips: 125
@@ -288,8 +288,8 @@ Using this, we can ensure that the code you provide suits our custom formatting 
 
 ## Authors
 
-- Christina Ludwig
-- Nikolaos Kolaxidis
+- [Christina Ludwig](https://github.com/redfrexx)
+- [Nikolaos Kolaxidis](https://github.com/GrHalbgott)
 
 ## License
 
