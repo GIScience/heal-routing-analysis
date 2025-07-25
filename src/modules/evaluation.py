@@ -345,6 +345,7 @@ def evaluate_routes(
     out_dir_dict,
     route_level_filename,
     segment_level_filename,
+    response_cache,
     bar,
 ):
     """Extracts information about route objects"""
@@ -420,11 +421,12 @@ def evaluate_routes(
                         )
                         segments_list_full.append(segments_append_data)
                 # remove current route file and folder if empty
-                item.unlink()
-                try:
-                    item.parents[0].rmdir()
-                except (FileNotFoundError, OSError):
-                    pass
+                if not response_cache:
+                    item.unlink()
+                    try:
+                        item.parents[0].rmdir()
+                    except (FileNotFoundError, OSError):
+                        pass
 
     # statistics export
     logger.info("Generating resulting files...")

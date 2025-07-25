@@ -69,6 +69,7 @@ class DeveloperconfigVariables(BaseSettings):
     time_of_day_dict: dict[str, str] = Field(..., min_length=1, max_length=4)
     optimized_type: str
     testenv: bool
+    response_cache: bool
 
     @validator("poi_tags_file")
     def validate_poi_tags_file(cls, value):

@@ -9,3 +9,4 @@ time_of_day_dict:
   evening: 7pm
 optimized_type: 'shaded'
 testenv: True
+response_cache: True

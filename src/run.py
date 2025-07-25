@@ -35,6 +35,7 @@ def main(config_file, ors_config_file, developer_config_file):
     time_of_day_dict = developer_config.time_of_day_dict
     optimized_type = developer_config.optimized_type
     testenv = developer_config.testenv
+    response_cache = developer_config.response_cache
 
     # Config file params
     aoi_name = config.aoi_name
@@ -161,6 +162,7 @@ def main(config_file, ors_config_file, developer_config_file):
                 out_dir_dict,
                 route_level_filename,
                 segment_level_filename,
+                response_cache,
                 bar,
             )
         except Exception as e:

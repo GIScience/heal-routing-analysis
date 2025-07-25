@@ -185,6 +185,7 @@ time_of_day_dict:
   afternoon: 4 pm
   evening: 7 pm
 testenv: False
+response_cache: False
 ```
 
 | Parameter | Description                                           |
@@ -195,6 +196,7 @@ testenv: False
 | poi_tags_file | Name of file containing all poi information. Used to query POIs and should not be changed. |
 | time_of_day_dict | Dictionary containing the columns (times of day) of the solar exposure data as keys and the according values for the output files. If no change should happen, use the same values as keys. |
 | testenv | Developing option: if true, uses a random.seed. Otherwise random routes for each script execution. |
+| response_cache | If false, remove responses from ORS to save disk space. |
 
 **Attention:** we cannot guarantee the successful execution of the script for changes made in this configuration file!
 
@@ -231,6 +233,38 @@ testenv: False
 9. **Evaluate** the routes by **creating statistics** based on the comparison of alternatives to default routes, reading the data of the written files (`out_dir/exportdata/route_level_statistics.feather`)
 10. **Create segments** of routes and **rank** them based on geometry and solar thresholds (`out_dir/exportdata/segment_level_statistics.feather`) compared to the respective default route of the A to B pair
 11. **Counts segments** for a usage frequency analysis for all times of day and all segments (`out_dir/aggregation/`)
+
+</details>
+
+<details>
+   <summary><b>Description of metrics</b></summary>
+<br/>
+
+The resulting files of the script all share a
+
+| Metric                | Value Range                                                               | Description |
+|-----------------------|---------------------------------------------------------------------------|-------------|
+| trip_id               | [1, `n_routes`]                                                           |
+| route_type            | shortest route / shaded route at {tod}                                    |
+| segment_id            | [0, x]                                                                    |
+| sol_expo_{tod}        | [0, 100]                                                                  |
+| sol_expo_diff_abs     | [-100, 0]                                                                 |
+| sol_expo_diff_rel     | [-100, 0]                                                                 |
+| sol_expo_reduction    | [0, 100]                                                                  |
+| ranking_{tod}         | 9 combinations                                                            |
+| segtype               | detour / equal                                                            |
+| distance              | [350, inf (restricted by algorithm)]                                      |
+| len_diff_meter        | [0, inf (restricted by algorithm)]                                        |
+| len_diff_rel          | [0, inf (restricted by algorithm)]                                        |
+| duration              | [~250, ~2250]                                                             |
+| dur_diff_sec          | [0, inf (restricted by algorithm)]                                        |
+| dur_diff_perc         | [0, 100]                                                                  |
+| same_ratio            | [0, 100]                                                                  |
+| avoided_ratio         | [0, ~150]                                                                 |
+| detour_ratio          | [0, 100]                                                                  |
+| geom                  | LINESTRING Z                                                              |
+| geom_diff             | LINESTRING Z / MULTILINESTRING Z                                          |
+| geom_intersect        | LINESTRING Z / MULTILINESTRING Z / MULTIPOINT Z / GEOMETRYCOLLECTION Z    |
 
 </details>
 
