@@ -14,7 +14,7 @@ class ConfigVariables(BaseSettings):
     aoi_name: str = Field(..., regex="(.*\.(gpkg|shp|geojson)$)|(.*\.\s[A-Z].*$)|^(?!.*\.)")
     sensitivity_factor: float = Field(..., ge=0.0, le=1.0)
     day: int = Field(..., ge=90, le=180)
-    n_trips: int = Field(..., ge=2)
+    n_routes: int = Field(..., ge=2)
     max_distance: int = Field(..., ge=100, le=5000)
     min_distance: int = Field(..., ge=0, le=1000)
     solar_threshold_dict: dict[str, int] = Field(..., ge=1, le=99)

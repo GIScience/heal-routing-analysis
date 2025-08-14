@@ -64,9 +64,16 @@ def download_features(
                     filter=ohsome_filter_str,
                     properties=properties,
                 )
+
+                if not response.data["features"]:
+                    logger.warning(f"No features found for {layer['name']}. Removing from poi_type_list.")
+                    poi_type_list.remove(layer["name"])
+                    continue
                 response.to_json(str(outfile))
             else:
                 continue
+
+    return poi_type_list
 
 
 def load_osm_tags(poi_file):

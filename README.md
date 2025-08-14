@@ -128,7 +128,7 @@ An example config file can be found under [config/config_sample.yaml](./config/c
 aoi_name: Heidelberg, Germany
 sensitivity_factor: 1.0
 day: 170
-n_trips: 125
+n_routes: 10000
 max_distance: 2000
 min_distance: 300
 solar_threshold_dict:
@@ -160,15 +160,13 @@ osm_timestamp: '2023-05-12'
 | aoi_name | Name of the AOI (geocode) or name of file of type shapefile, GeoPackage (one layer) or GeoJSON |
 | sensitivity_factor | The factor and weight of solar exposure values in the routing algorithm (float value between 0.0 and 1.0). This represents the individual sensitivity to solar exposure from low (0.0) to very high (1.0). |
 | day | The day of the solar exposure data. Depends on what is available, in this case int value between 90 and 180 in steps of 10. |
-| n_trips | Count of trips per poi type (multiple routes per trip for every time available on HEAL) - take a look at the notice below |
+| n_routes | Number of trips per time of day available on HEAL. The total number of generated routes is calculated with `n_routes * len(time_of_day_dict)` [see below] |
 | max_distance | The maximum distance around origin points where POIs should be used as destination points (in m) |
 | min_distance | The minimum distance around origin points where POIs should be used as destination points (in m) |
 | solar_threshold_dict | Classification of the solar exposure area values in three classes (dict with int values between 1 and 99) |
 | pop_file | Name of the population file of type tif |
-| poi_type_list | POIs that are considered as destination points (look into poi tags file) - take a look at the notice below |
+| poi_type_list | POIs that are considered as destination points (look into poi tags file) |
 | osm_timestamp | Timestamp for the query to OSM using the ohsome API |
-
-> **Notice:** the total route count is calculated by `n_trips * len(poi_type_list) * 5`, so by using the config_file above you will get 10000 routes in total.
 
 ### Developer configuration file: -dc / --developer_config
 
@@ -210,7 +208,7 @@ response_cache: False
 
 1. **Cleanup** by deleting folders in `out_dir` and temporary data in `./data/` (save the results before executing the program again!)
 2. Create **folder structure** with subfolders according to the type of data under `out_dir`
-3. **Download POIs** from OSM using the ohsome API - these are destination points (B)
+3. **Download POIs** from OSM using the ohsome API - these are destination points (B). It can happen that there are no features for a specific poi type, which then is removed from `poi_type_list`. This affects the total number of generated routes in the end.
 
 </details>
 

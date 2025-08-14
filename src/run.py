@@ -41,7 +41,7 @@ def main(config_file, ors_config_file, developer_config_file):
     aoi_name = config.aoi_name
     sensitivity_factor = config.sensitivity_factor
     day = config.day
-    n_trips = config.n_trips
+    n_routes = config.n_routes
     max_distance = config.max_distance
     min_distance = config.min_distance
     solar_threshold_dict = config.solar_threshold_dict
@@ -108,7 +108,7 @@ def main(config_file, ors_config_file, developer_config_file):
             poi_tags = load_osm_tags(poi_tags_file)
             poi_dir.mkdir(exist_ok=True)
 
-            download_features(
+            poi_type_list = download_features(
                 poi_tags=poi_tags,
                 poi_type_list=poi_type_list,
                 bpolys_file=aoi_bpoly,
@@ -123,6 +123,8 @@ def main(config_file, ors_config_file, developer_config_file):
         bar()
 
         # route generation
+        n_trips = round(n_routes / len(poi_type_list))
+        logger.info(f"Generating {n_trips} trips for each poi type...")
         try:
             logger.info("Generating routes...")
             generate_routes(
