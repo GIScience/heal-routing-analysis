@@ -48,4 +48,4 @@ class RoutingClient:
             )
             return RoutingResponse(response)
         except ors.exceptions.ApiError as e:
-            raise ValueError(str(e))
+            raise ValueError(e)

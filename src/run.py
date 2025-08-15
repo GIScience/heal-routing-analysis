@@ -126,7 +126,6 @@ def main(config_file, ors_config_file, developer_config_file):
         n_trips = round(n_routes / len(poi_type_list))
         logger.info(f"Generating {n_trips} trips for each poi type...")
         try:
-            logger.info("Generating routes...")
             generate_routes(
                 aoi_bpoly,
                 n_trips,

@@ -295,10 +295,16 @@ def generate_routes(
                         heal_route.to_file(out_file_heal)
 
                 except TimeoutError as e:
-                    logger.exception(e)
+                    logger.error(e)
                     break
                 except ValueError as e:
-                    logger.exception(e)
+                    err = e.args[0].args[1]
+                    if err["error"]["code"] == 2010:
+                        logging.warning(
+                            f"{str(err['error']['message'])} See error_log.txt for more information. Selecting new start point."
+                        )
+                    else:
+                        logging.warning(str(e))
                     with open("./error_log.txt", "a") as f:
                         f.write("\n\n")
                         json.dump(default_ors_request, f, indent=4)
@@ -306,7 +312,7 @@ def generate_routes(
                         f.write("\n\n---------------------\n---------------------")
                     continue
                 except requests.exceptions.ConnectionError:
-                    logger.exception(
+                    logger.error(
                         f"Connection error: {ors_url} is not available. Check your connection or the ORS url config parameter."
                     )
                     sys.exit(0)
