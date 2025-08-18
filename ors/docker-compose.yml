@@ -46,12 +46,12 @@ services:
       # See the ors-config.env file for more options.
       # To have a configuration file-less container, uncomment at least the following properties.
       # The values are examples and provide the default configuration.
-      ors.engine.source_file: /home/ors/files/heidelberg_2023-05-11.pbf
+      ors.engine.source_file: /home/ors/files/worms.osm.pbf
       ors.engine.graphs_root_path: /home/ors/graphs
       ors.engine.elevation.cache_path: /home/ors/elevation_cache
       ors.engine.profiles.car.enabled: false
       ors.engine.profiles.walking.enabled: true
-      ors.engine.profiles.walking.ext_storages.csv.filepath: /home/ors/files/streets_shadow_index_170.csv
+      ors.engine.profiles.walking.ext_storages.csv.filepath: /home/ors/files/solar_index_Worms_170.csv
 
     # ----------------- ENV file configuration ------------------- #
     # Too many variables for your 'environment:' section?

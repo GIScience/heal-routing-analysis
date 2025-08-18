@@ -6,7 +6,7 @@ repos:
     - id: end-of-file-fixer
     - id: check-yaml
     - id: check-added-large-files
-      exclude: 'notebooks/|heidelberg_2023-05-11.pbf'
+      exclude: 'notebooks/|heidelberg_2023-05-11.pbf|worms.osm.pbf'
       args: ['--maxkb=2000']
 - repo: https://github.com/ambv/black
   rev: 22.6.0

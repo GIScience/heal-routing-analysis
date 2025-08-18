@@ -1,4 +1,4 @@
-aoi_name: Heidelberg, Germany
+aoi_name: Worms, Germany
 sensitivity_factor: 1.0
 day: 170
 n_routes: 500
@@ -12,4 +12,4 @@ poi_type_list:
 - bus
 - primary-care
 - schools
-osm_timestamp: '2023-05-12'
+osm_timestamp: '2024-06-18'

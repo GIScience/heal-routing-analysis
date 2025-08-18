@@ -3,10 +3,10 @@ out_dir: ./export
 poi_dir: ./pois
 poi_tags_file: poi_tags.json
 time_of_day_dict:
-  morning: 10am
-  noon: 1pm
-  afternoon: 4pm
-  evening: 7pm
+  "170_10": 10am
+  "170_13": 1pm
+  "170_16": 4pm
+  "170_19": 7pm
 optimized_type: 'shaded'
 testenv: True
-response_cache: True
+response_cache: False

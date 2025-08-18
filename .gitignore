@@ -11,8 +11,10 @@ ors/ors-docker/**
 !ors/ors-docker/**/
 !ors/ors-docker/**/.gitkeep
 !ors/ors-docker/files/heidelberg_2023-05-11.pbf
+!ors/ors-docker/files/worms.osm.pbf
 !ors/ors-docker/files/streets_shadow_index_170.csv
 !ors/ors-docker/files/streets_shadow_index_240.csv
+!ors/ors-docker/files/solar_index_Worms_170.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
