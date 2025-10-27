@@ -329,12 +329,12 @@ This project is licensed under the MIT License - see the [LICENSE file](./LICENS
 
 ## Related publications
 
-[1] Kolaxidis, N., Ludwig, C., Knoblauch, S., Foshag, K., Fendrich, S., Lautenbach, S., and Zipf, A. (2025) Mitigating Heat Stress by Reducing Solar Exposure in Pedestrian Routing. Preprint. doi:[10.22541/au.173697534.46361284/v1](https://doi.org/10.22541/au.173697534.46361284/v1)
+[1] Kolaxidis, N., Ludwig, C., Knoblauch, S., Fürle, J., Foshag, K., Fendrich, S., Lautenbach, S., and Zipf, A. (2025) Mitigating Heat Stress by Reducing Solar Exposure in Pedestrian Routing. Transactions in GIS 29, no. 6: e70110. doi:[10.1111/tgis.70110 ](https://doi.org/10.1111/tgis.70110)
 
 [2] Foshag, K., Fürle, J., Ludwig, C., Fallmann, J., Lautenbach, S., Rupp, S. et al. (2024) How to assess the needs of vulnerable population groups towards
-heat-sensitive routing? An evidence-based and practical approach to reducing urban heat stress. Erdkunde, 78(1), 1–33. doi:10.3112/erdkunde.2024.01.01
+heat-sensitive routing? An evidence-based and practical approach to reducing urban heat stress. Erdkunde, 78(1), 1–33. doi:[10.3112/erdkunde.2024.01.01](https://doi.org/10.3112/erdkunde.2024.01.01)
 
-[3] Ludwig, C., Hecht, R., Lautenbach, S., Schorcht, M., & Zipf, A. (2021) Mapping Public Urban Green Spaces Based on OpenStreetMap and Sentinel-2 Imagery Using Belief Functions. ISPRS International Journal of Geo-Information, 10(4), 251. doi:10.3390/ijgi10040251
+[3] Ludwig, C., Hecht, R., Lautenbach, S., Schorcht, M., & Zipf, A. (2021) Mapping Public Urban Green Spaces Based on OpenStreetMap and Sentinel-2 Imagery Using Belief Functions. ISPRS International Journal of Geo-Information, 10(4), 251. doi:[10.3390/ijgi10040251](https://doi.org/10.3390/ijgi10040251)
 
 [4] Ludwig, C., Lautenbach, S., Schömann, E.M. & Zipf, A. Comparison of Simulated Fast and Green Routes for Cyclists and Pedestrians. In: Janowicz,
 K. & Verstegen, J.A. (Eds.) 11th International Conference on Geographic Information Science (GIScience 2021) - Part II. Vol. 208 of Leibniz
@@ -342,4 +342,4 @@ International Proceedings in Informatics (LIPIcs), 2021. Dagstuhl, Germany: Schl
 URL https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.GIScience.2021.II.3
 
 [5] Foshag, K., Aeschbach, N., Höfle, B., Winkler, R., Siegmund, A. & Aeschbach, W. (2020) Viability of public spaces in cities under increasing heat:
-A transdisciplinary approach. Sustainable Cities and Society, 59, 102215. doi:10.1016/j.scs.2020.102215.
+A transdisciplinary approach. Sustainable Cities and Society, 59, 102215. doi:[10.1016/j.scs.2020.102215](https://doi.org/10.1016/j.scs.2020.102215)
