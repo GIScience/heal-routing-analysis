@@ -230,7 +230,7 @@ def generate_segment_data(
 
 
 def split_in_types(
-    gdf, out_dir_dict, filetype, time_of_day_values, optimized_type, standardization_factor, sorted_geom_name
+    gdf, out_dir_dict, filetype, time_of_day_values, optimized_type, time_of_day_count, sorted_geom_name
 ):
     """Split statistics file into routes with specific times of day"""
 
@@ -258,7 +258,7 @@ def split_in_types(
                     segtype,
                     time_of_day,
                     time_of_day_values,
-                    standardization_factor,
+                    time_of_day_count,
                     sorted_geom_name,
                 )
         # Default routes
@@ -269,7 +269,7 @@ def split_in_types(
                 "alltimes",
                 time_of_day,
                 time_of_day_values,
-                standardization_factor,
+                time_of_day_count,
                 sorted_geom_name,
             )
 
@@ -292,7 +292,7 @@ def wkt_loads(row, col):
 
 
 def aggregate_count(
-    gdf, out_folder, segtype, time_of_day, time_of_day_values, standardization_factor, sorted_geom_name
+    gdf, out_folder, segtype, time_of_day, time_of_day_values, time_of_day_count, sorted_geom_name
 ):
     """Aggregate segments per time of day and rank by count"""
     if time_of_day == time_of_day_values[0]:
@@ -315,9 +315,7 @@ def aggregate_count(
 
     counts = gdf.groupby(col_list).size().reset_index(name="count")
     counts = counts.sort_values(by="count", ascending=False)
-    counts["count_standardized"] = counts.apply(
-        lambda row: (row["count"] / standardization_factor) * 100, axis=1
-    )
+    counts["count_relative"] = counts.apply(lambda row: (row["count"] / time_of_day_count) * 100, axis=1)
     counts["geom"] = counts.apply(wkt_loads, col=sorted_geom_name, axis=1)
     counts = gpd.GeoDataFrame(counts)
     counts.set_geometry(col="geom", inplace=True)
@@ -432,8 +430,7 @@ def evaluate_routes(
     logger.info("Generating resulting files...")
     logger.info("Routes...")
     route_level_data = write_gdf(routes_list_full, route_level_filename, out_dir_dict)
-    routes_gdf_length = len(route_level_data)
-    standardization_factor = routes_gdf_length / len(time_of_day_values)
+    time_of_day_count = len(route_level_data) / len(time_of_day_values)
     del routes_list_full  # prevent memory leak
     split_in_types(
         route_level_data,
@@ -441,7 +438,7 @@ def evaluate_routes(
         "routes",
         time_of_day_values,
         optimized_type,
-        standardization_factor,
+        time_of_day_count,
         sorted_geom_name,
     )
     del route_level_data  # prevent memory leak
@@ -456,6 +453,6 @@ def evaluate_routes(
         "segments",
         time_of_day_values,
         optimized_type,
-        standardization_factor,
+        time_of_day_count,
         sorted_geom_name,
     )
